@@ -3,12 +3,10 @@
  */
 const express = require('express') ;
 const indexRouter = express();
-const AddressDAO = require('../pesistence/AddressDAO');
+
 indexRouter.get('/', function(req, res, next) {
     //Do whatever...
-    const dao = new AddressDAO();
-    dao.init();
-    res.status(200).json({message: 'Welcom to CV API'})
+    res.status(200).json({message: 'Welcome to CV API'})
 });
 
 module.exports  = indexRouter;
