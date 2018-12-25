@@ -4,11 +4,13 @@
   "description": "ApI for my cv",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "orm": "^5.0.2",
+    "mysql": "^2.0.0-alpha9"
   }
 }
