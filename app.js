@@ -1,15 +1,29 @@
 /**
  * Created by sboudfor on 25/12/2018.
  */
-const express = require('express') ;
-const app = express();
+const app = require('express')();
+
+// routers imports:
 const indexRouter = require('./api/index');
 const usersRouter = require('./api/UserController');
-const orm = require('./pesistence/AddressDAO');
+const addressRouter = require('./api/AddressController');
+const mediaRouter = require('./api/MediaController');
+const jobRouter = require('./api/JobController');
+const experienceRouter = require('./api/ExperienceController');
+const formationRouter = require('./api/FormationExperience');
 const bodyParser = require('body-parser');
+
+// import use:
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({extended: true}));
+
+// routers declarations:
 app.use('/', indexRouter);
-app.use('/user', usersRouter);
+app.use('/resume', usersRouter);
+app.use('/resume', addressRouter);
+app.use('/resume', jobRouter);
+app.use('/resume', mediaRouter);
+app.use('/resume', experienceRouter);
+app.use('/resume', formationRouter);
 
 app.listen(3000);

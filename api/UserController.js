@@ -4,7 +4,7 @@
 const userController = require('express')();
 const UserDAO = require('../pesistence/UserDAO');
 
-userController.post('/', function (request, response) {
+userController.post('/', (request, response) => {
     const userDAO = new UserDAO();
     userDAO.create(request.body, created => {
         response.status(200).json(created);
@@ -13,9 +13,9 @@ userController.post('/', function (request, response) {
 });
 
 
-userController.get('/', function (request, response) {
+userController.get('/:id/user', (request, response) => {
     const userDAO = new UserDAO();
-    userDAO.findByUserName(request.query.username, users => {
+    userDAO.findByUserID(request.params.id,  users => {
         response.status(200).json(users);
 
     });

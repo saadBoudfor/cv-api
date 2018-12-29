@@ -9,18 +9,11 @@ const Address = PersistenceProvider.db.define('Address', {
         complementaryAddress: String,
         postalCode: String,
         city: String,
-        country: String
+        country: String,
+        userID: String,
     }
     , {
-        methods: {
-            fullAddress: function () {
-                return this.streetNumber
-                    + ' ' + this.streetName
-                    + ' ' + this.postalCode
-                    + ' ' + this.city
-                    + ' ' + this.country;
-            }
-        }
+        methods: {}
     });
 
 module.exports = Address;

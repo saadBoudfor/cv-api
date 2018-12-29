@@ -33,8 +33,8 @@ class UserDAO {
 
     }
 
-    findByUserName(username, callBack) {
-        return User.find({userName: username}, (err, users) => {
+    findByUserID(id, callBack) {
+        return User.find({id: id}, (err, users) => {
             callBack(users);
         });
     }

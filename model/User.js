@@ -10,7 +10,8 @@ const User = PersistenceProvider.db.define('User', {
         profile: String,
         profileID: String,
         createdTime: String,
-        userName: String
+        userName: String,
+        email: String
     }
     , {
         methods: {}
