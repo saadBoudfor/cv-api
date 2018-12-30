@@ -7,9 +7,6 @@ const Formation = PersistenceProvider.db.define('Formation', {
         icon: String,
         start: String,
         end: String,
-    }
-    , {
-        methods: {}
     });
 
 module.exports = Formation;

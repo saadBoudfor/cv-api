@@ -4,9 +4,6 @@ const Skill = PersistenceProvider.db.define('Skill', {
         score: String,
         color: String,
         userID: String
-    }
-    , {
-        methods: {}
     });
 
 module.exports = Skill;

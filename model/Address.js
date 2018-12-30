@@ -11,9 +11,6 @@ const Address = PersistenceProvider.db.define('Address', {
         city: String,
         country: String,
         userID: String,
-    }
-    , {
-        methods: {}
     });
 
 module.exports = Address;

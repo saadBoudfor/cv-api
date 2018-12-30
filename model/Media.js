@@ -7,9 +7,6 @@ const Media = PersistenceProvider.db.define('Media', {
         name: String,
         url: String,
         userID: String
-    }
-    , {
-        methods: {}
     });
 
 module.exports = Media;

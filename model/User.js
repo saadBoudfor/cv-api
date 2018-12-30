@@ -12,9 +12,6 @@ const User = PersistenceProvider.db.define('User', {
         createdTime: String,
         userName: String,
         email: String
-    }
-    , {
-        methods: {}
     });
 
 module.exports = User;

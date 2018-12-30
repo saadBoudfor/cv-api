@@ -7,9 +7,6 @@ const Experience = PersistenceProvider.db.define('Experience', {
         start: String,
         end: String,
         img: String,
-    }
-    , {
-        methods: {}
     });
 
 module.exports = Experience;

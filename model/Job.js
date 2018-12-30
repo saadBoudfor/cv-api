@@ -7,9 +7,6 @@ const Job = PersistenceProvider.db.define('Job', {
         title: String,
         description: { type: 'text', size: 10000 },
         userID: String
-    }
-    , {
-        methods: {}
     });
 
 module.exports = Job;

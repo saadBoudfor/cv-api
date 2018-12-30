@@ -4,9 +4,6 @@ const Service = PersistenceProvider.db.define('Service', {
         url: String,
         description: {type: 'text', size: 10000},
         userID: String
-    }
-    , {
-        methods: {}
     });
 
 module.exports = Service;
