@@ -1,4 +1,5 @@
 const PersistenceProvider = require("./database");
+const Logger = require("../shared/Logger");
 const Service = require('../model/Service');
 
 class ServiceDAO {
@@ -8,8 +9,10 @@ class ServiceDAO {
             Service.create(service, (error, created) => {
                 if (!error) {
                     callback(created);
+                    Logger.debugg(['Creating new Service\n', service], 'Service');
                     return;
                 }
+                Logger.error(['failed to create new Service\n', error], 'Service');
                 callback(null);
             })
         });
@@ -20,8 +23,10 @@ class ServiceDAO {
             Service.find({id: id}).remove(error => {
                 if (!error) {
                     callback({serviceDeleted: id});
+                    Logger.debugg(['deleting Service with id:', id, '\n'], 'Service');
                     return;
                 }
+                Logger.error(['failed to delete Service with id: ' + id + '.', '\n', error], 'Service');
                 callback(null);
             })
         })
@@ -39,8 +44,10 @@ class ServiceDAO {
                 }, error => {
                     if (!error) {
                         callback(result[0]);
+                        Logger.debugg(['Updating Service: ', "\n", service], 'Service');
                         return;
                     }
+                    Logger.error(['failed to update Service: ', '\n', error], 'Service');
                     callback(null);
                 })
             })
@@ -52,9 +59,11 @@ class ServiceDAO {
             Service.find({userID: userID}, (error, result) => {
                 if (!error) {
                     callback(result);
+                    Logger.debugg(['Getting Service from data base: ', "\n", result], 'Service');
                     return;
                 }
                 callback(null);
+                Logger.error(['Getting Service from data base failed: ', "\n", error], 'Service');
             })
         })
     }

@@ -9,6 +9,7 @@ const usersRouter = require('./api/UserController');
 const addressRouter = require('./api/AddressController');
 const mediaRouter = require('./api/MediaController');
 const jobRouter = require('./api/JobController');
+const serviceRouter = require('./api/ServiceController');
 const experienceRouter = require('./api/ExperienceController');
 const formationRouter = require('./api/FormationExperience');
 const bodyParser = require('body-parser');
@@ -25,5 +26,6 @@ app.use('/resume', jobRouter);
 app.use('/resume', mediaRouter);
 app.use('/resume', experienceRouter);
 app.use('/resume', formationRouter);
+app.use('/resume', serviceRouter);
 
 app.listen(3000);

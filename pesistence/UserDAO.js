@@ -3,31 +3,34 @@
  */
 const PersistenceProvider = require("./database");
 const User = require("../model/User");
+const Login = require("../model/Login");
 
 class UserDAO {
     /**
      * Create new User
-     * @param user
+     * @param resume
      * @param callback
      */
-    create(user, callback) {
+    create(resume, callback) {
         PersistenceProvider.connectDB(() => {
-            user = updateBeforeCommit(user);
-            User.create(user, (error, created) => {
-                if (error) {
-                    console.log('error occurred when creating new User');
-                    console.error(error);
+            resume.user = updateBeforeCommit(resume.user);
+            User.create(resume.user, (error, created) => {
+                if (!error) {
+                    Login.create({userName: resume.user.userName, password: resume.password}, (err, cre) => {
+                        callback({
+                            firstName: created.firstName,
+                            lastName: created.lastName,
+                            profileID: created.profileID,
+                            userName: created.userName,
+                            createdTime: created.createdTime,
+                            phone: created.phone,
+                            profile: created.profile,
+                            id: created.id
+                        });
+                    });
+                    return;
                 }
-                callback({
-                    firstName: created.firstName,
-                    lastName: created.lastName,
-                    profileID: created.profileID,
-                    userName: created.userName,
-                    createdTime: created.createdTime,
-                    phone: created.phone,
-                    profile: created.profile,
-                    id: created.id
-                });
+                callback(null);
             })
         })
 
